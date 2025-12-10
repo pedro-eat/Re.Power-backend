@@ -7,14 +7,14 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Rota de teste
+// Rota principal
 app.get("/", (req, res) => {
   res.send("Re.Power Backend API running 🚀");
 });
 
 // Health check
 app.get("/health", (req, res) => {
-  res.json({ status: "ok", env: process.env.NODE_ENV || "unknown" });
+  res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
 app.listen(PORT, () => {
